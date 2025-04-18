@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Daboss Apparel</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Monoton&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+>
+
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .menu li i {
+            margin-right: 8px;
+        }
+
+        .divider {
+            border: none;
+            height: 2px;
+            background-color: #ccc;
+            margin: 0;
+        }
+
+        .center {
+            text-align: center;
+            color: white;
+            background-color: #0b0707;
+            padding: 15px 0;
+        }
+
+        .menuSecondario {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menuSecondario li {
+            font-size: 17px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .menuSecondario li i {
+            margin-right: 8px;
+        }
+
+        .menuSecondario li:hover {
+            color: #e819ec;
+        }
+
+        .WANTED {
+            font-family: "Monoton", sans-serif;
+            font-size: x-large;
+            font-style: italic;
+            color: #060101;
+            text-align: center;
+        }
+
+        .linea-con-icona {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px auto;
+        }
+
+        .linea-con-icona hr {
+            flex: 1;
+            border: none;
+            height: 1px;
+            background-color: #4d4646;
+        }
+
+        .linea-con-icona span {
+            font-size: 18px;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .contenuto {
+            flex: 1;
+        }
+
+        .footer {
+            background-color: #131010;
+            color: white;
+            text-align: left;
+            padding: 15px 0;
+            font-size: 14px;
+        }
+
+        .footer .social {
+            text-align: end;
+            margin-top: 10px;
+        }
+
+        .footer .social a {
+            color: white;
+            margin: 0 10px;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+
+        .footer .social a:hover {
+            color: #1a78de;
+        }
+
+        .testo {
+            font: 1em sans-serif;
+            font-style: italic;
+            font-size: medium;
+            color: #e3e3e5;
+            text-align: end;
+        }
+
+        .barra-info {
+            background-color: #f8f8f8;
+            color: #333;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 15px 10px;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            flex-wrap: wrap;
+        }
+
+        .info-box {
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 5px 10px;
+            text-align: center;
+        }
+
+        .logo-pagamento {
+            height: 25px;
+            width: auto;
+            margin-left: 5px;
+        }
+
+
+        .catalogo {
+            padding: 30px 30px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .catalogo h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #140707;
+        }
+
+        .grid-catalogo {
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .prodotto {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            transition: transform 0.2s;
+        }
+
+        .prodotto:hover {
+            transform: scale(1.03);
+        }
+
+        .prodotto img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .prodotto h3 {
+            margin: 15px 0 10px;
+            font-size: 20px;
+        }
+
+        .prodotto p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .prezzo {
+            font-weight: bold;
+            color: #000;
+            display: block;
+            margin: 10px 0;
+        }
+
+        .prodotto button {
+            background-color: #070404;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .prodotto button:hover {
+            background-color: #007bff;
+        }
+
+        .linea-con-testo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 40px 0;
+        }
+
+        .linea-con-testo hr {
+            flex: 1;
+            border: none;
+            height: 1px;
+            background-color: #131010;
+        }
+
+        .linea-con-testo span {
+            font-size: 16px;
+            color: #131010;
+            font-weight: bold;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .catalogo {
+            padding: 40px 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .grid-catalogo {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .prodotto {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            transition: transform 0.2s;
+        }
+
+        .prodotto:hover {
+            transform: scale(1.03);
+        }
+
+        .prodotto img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .prodotto h3 {
+            margin: 15px 0 10px;
+            font-size: 20px;
+        }
+
+        .prodotto p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .prezzo {
+            font-weight: bold;
+            color: #000;
+            display: block;
+            margin: 10px 0;
+        }
+
+        .prodotto button {
+            background-color: #070404;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .prodotto button:hover {
+            background-color: #007bff;
+        }
+
+
+        .linea-con-testo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 40px 0;
+        }
+
+        .linea-con-testo hr {
+            flex: 1;
+            border: none;
+            height: 1px;
+            background-color: #131010;
+        }
+
+        .linea-con-testo span {
+            font-size: 16px;
+            color: #131010;
+            font-weight: bold;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .linea-con-testo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 60px 0 30px;
+        }
+
+        .linea-con-testo hr {
+            flex: 1;
+            border: none;
+            height: 1px;
+            background-color: #131010;
+            opacity: 0.3;
+        }
+
+        .linea-con-testo span {
+            font-size: 16px;
+            color: #131010;
+            font-weight: bold;
+            font-family: 'Roboto', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .box-descrizione {
+            background-color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            color: #131010;
+        }
+
+        .box-descrizione h2 {
+            margin-bottom: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .box-descrizione p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .box-informazioni {
+            background-color: #f7f7f7;
+            padding: 50px 20px;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .info-item {
+            max-width: 300px;
+            flex: 1 1 250px;
+        }
+
+        .info-item i {
+            font-size: 32px;
+            color: #090606;
+            margin-bottom: 15px;
+        }
+
+        .info-item h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-family: 'Roboto', sans-serif;
+            color: #100d0d;
+        }
+
+        .info-item p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+
+        .newsletter-box {
+            background-color: #ffffff;
+            color: rgb(8, 5, 5);
+            text-align: center;
+            padding: 50px 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .newsletter-box h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .newsletter-box p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input[type="email"] {
+            padding: 10px;
+            width: 70%;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .newsletter-form button {
+            padding: 10px 20px;
+            background-color: #ffffff;
+            color: #131010;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #f533de;
+        }
+
+
+
+        @media screen and (max-width: 768px) {
+
+
+            .navbar {
+            background-color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+            .menu,
+            .menuSecondario {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .WANTED {
+                font-size: 22px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .newsletter-form input[type="email"],
+            .newsletter-form button {
+                width: 100%;
+            }
+
+            .footer {
+                text-align: center;
+                padding: 20px 10px;
+            }
+
+            .footer .social {
+                text-align: center;
+                margin-top: 15px;
+            }
+
+            .box-descrizione {
+                padding: 20px;
+                font-size: 16px;
+                text-align: center;
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .contenuto,
+            .newsletter-box,
+            .box-descrizione {
+                width: 100%;
+                padding: 0 15px;
+                box-sizing: border-box;
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Titolo -->
+    <div class="WANTED">DABOSS APPAREL</div>
+
+    <div class="linea-con-icona">
+        <hr><span>🦍</span>
+        <hr>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul class="menu">
+            <li><i class="fas fa-house"></i>Home</li>
+            <li><i class="fa-solid fa-store"></i>Store</li>
+            <li><i class="fa-solid fa-cart-shopping"></i>Carrello</li>
+            <li><i class="fa-solid fa-right-to-bracket"></i><span id="openLogin" style="cursor:pointer;">Accedi</span>
+            </li>
+        </ul>
+    </nav>
+
+
+    <hr class="divider">
+
+    <!-- Menu Secondario -->
+    <div class="center">
+        <ul class="menuSecondario">
+            <li><i class="fa-solid fa-person"></i> Uomo</li>
+            <li><i class="fa-solid fa-person-dress"></i> Donna</li>
+            <li><i class="fa-solid fa-suitcase"></i> Accessori</li>
+            <li><i class="fa-solid fa-arrow-up-right-from-square"></i> Nuovi arrivi</li>
+        </ul>
+    </div>
+
+    <section class="catalogo">
+        <h2>Il Nostro Catalogo</h2>
+        <div class="grid-catalogo">
+
+
+
+            <!-- Prodotto 1 -->
+            <div class="prodotto">
+                <img src="https://via.placeholder.com/250x250" alt="Prodotto 1">
+                <h3>Felpa Daboss</h3>
+                <p>Felpa oversize con logo ricamato.</p>
+                <span class="prezzo">€39,99</span>
+                <button>Aggiungi al carrello</button>
+
+                <div class="linea-con-testo">
+                    <hr><span>COLLEZIONE ESTIVA</span>
+                    <hr>
+                </div>
+            </div>
+
+            <!-- Prodotto 2 -->
+            <div class="prodotto">
+                <img src="https://via.placeholder.com/250x250" alt="Prodotto 2">
+                <h3>T-shirt Iconica</h3>
+                <p>Modello unisex in cotone bio.</p>
+                <span class="prezzo">€24,99</span>
+                <button>Aggiungi al carrello</button>
+
+                <div class="linea-con-testo">
+                    <hr><span>COLLEZIONE ESTIVA</span>
+                    <hr>
+                </div>
+            </div>
+
+            <!-- Prodotto 3 -->
+            <div class="prodotto">
+                <img src="https://via.placeholder.com/250x250" alt="Prodotto 3">
+                <h3>Maglione Vintage</h3>
+                <p>Berretto invernale con etichetta Daboss.</p>
+                <span class="prezzo">€14,99</span>
+                <button>Aggiungi al carrello</button>
+
+                <div class="linea-con-testo">
+                    <hr><span>COLLEZIONE ESTIVA</span>
+                    <hr>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="linea-con-testo">
+            <hr><span>Vetrina</span>
+            <hr>
+        </div>
+
+        <section class="catalogo">
+            <div class="grid-catalogo">
+
+                <!-- Articolo 1 -->
+                <div class="prodotto">
+                    <img src="https://via.placeholder.com/250x250" alt="Sneakers">
+                    <h3>Sneakers</h3>
+                    <p>Design minimal, capiente e resistente all'acqua.</p>
+                    <span class="prezzo">€49,99</span>
+                    <button>Aggiungi al carrello</button>
+
+
+                    <div class="linea-con-testo">
+                        <hr><span>COLLEZIONE ESTIVA</span>
+                        <hr>
+                    </div>
+                </div>
+
+                <!-- Articolo 2 -->
+                <div class="prodotto">
+                    <img src="https://via.placeholder.com/250x250" alt="Ciabatte">
+                    <h3>Ciabatte</h3>
+                    <p>Visiera piatta con patch logo in rilievo.</p>
+                    <span class="prezzo">€19,99</span>
+                    <button>Aggiungi al carrello</button>
+
+
+                    <div class="linea-con-testo">
+                        <hr><span>COLLEZIONE ESTIVA</span>
+                        <hr>
+                    </div>
+                </div>
+
+                <!-- Articolo 3 -->
+                <div class="prodotto">
+                    <img src="https://via.placeholder.com/250x250" alt="Scarpa">
+                    <h3>Runnig</h3>
+                    <p>Perfetta per palestra, tessuto traspirante.</p>
+                    <span class="prezzo">€12,99</span>
+                    <button>Aggiungi al carrello</button>
+
+                    <div class="linea-con-testo">
+                        <hr><span>COLLEZIONE ESTIVA</span>
+                        <hr>
+                    </div>
+
+                </div>
+
+                <section class="catalogo">
+                    <div class="grid-catalogo">
+
+
+
+
+                        <!-- Prodotto 1 -->
+                        <div class="prodotto">
+                            <img src="https://via.placeholder.com/250x250" alt="T-shirt Summer">
+                            <h3>T-shirt Summer</h3>
+                            <p>Leggera, traspirante, 100% cotone organico.</p>
+                            <span class="prezzo">€22,90</span>
+                            <button>Aggiungi al carrello</button>
+
+                            <div class="linea-con-testo">
+                                <hr><span>COLLEZIONE ESTIVA</span>
+                                <hr>
+                            </div>
+                        </div>
+
+                        <!-- Prodotto 2 -->
+                        <div class="prodotto">
+                            <img src="https://via.placeholder.com/250x250" alt="Shorts Unisex">
+                            <h3>Shorts Unisex</h3>
+                            <p>Casual e comodi, ideali per l’estate.</p>
+                            <span class="prezzo">€18,90</span>
+                            <button>Aggiungi al carrello</button>
+
+                            <div class="linea-con-testo">
+                                <hr><span>COLLEZIONE ESTIVA</span>
+                                <hr>
+                            </div>
+                        </div>
+
+                        <!-- Prodotto 3 -->
+                        <div class="prodotto">
+                            <img src="https://via.placeholder.com/250x250" alt="Cappellino Leggero">
+                            <h3>Cappellino Leggero</h3>
+                            <p>Perfetto per le giornate soleggiate, traspirante.</p>
+                            <span class="prezzo">€14,50</span>
+                            <button>Aggiungi al carrello</button>
+
+                            <div class="linea-con-testo">
+                                <hr><span>COLLEZIONE ESTIVA</span>
+                                <hr>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </section>
+
+
+            </div>
+        </section>
+
+
+    </section>
+
+    <div class="linea-con-testo">
+        <hr><span>Scopri la nostra filosofia</span>
+        <hr>
+    </div>
+
+    <div class="box-descrizione">
+        <h2>Chi siamo</h2>
+        <p>
+            Daboss Apparel è più di un semplice brand: è uno stile di vita.
+            Ispirati dalla cultura urbana e dalla passione per la moda streetwear,
+            offriamo capi unici che uniscono stile, qualità e identità.
+        </p>
+    </div>
+
+
+
+    <!-- Contenuto -->
+    <div class="contenuto">
+        <!-- Altri contenuti qui -->
+    </div>
+
+    <div class="barra-info">
+        <div class="info-box">
+            <i class="fas fa-truck"></i> Spedizione in tutta Italia
+        </div>
+        <div class="info-box">
+            <i class="fas fa-credit-card"></i> Pagamenti sicuri
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa"
+                class="logo-pagamento">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="MasterCard"
+                class="logo-pagamento">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal"
+                class="logo-pagamento">
+        </div>
+        <div class="info-box">
+            <i class="fas fa-rotate-left"></i> Reso facile entro 30 giorni
+        </div>
+    </div>
+
+    <div class="box-informazioni">
+        <div class="info-item">
+            <i class="fa-solid fa-circle-info"></i>
+            <h3>Informazioni di contatto</h3>
+            <p>Locri, Via Dromo, n141.</p>
+            <p>Telefono: 0964232503.</p>
+            <p>Cellulare: 3274597773.</p>
+            <p>E-mail: info@DabossApparel@gmail.com</p>
+
+        </div>
+        <div class="info-item">
+            <i class="fa-solid fa-clock"></i>
+            <h3>Orari Ufficio</h3>
+            <p>Shop online: Lunedì/Venerdì 10.00-18.00.</p>
+        </div>
+        <div class="info-item">
+            <i class="fas fa-headset"></i>
+            <h3>Assistenza Clienti</h3>
+            <p>Siamo disponibili via mail, chat o telefono 7/7.</p>
+        </div>
+        <div class="info-item">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <h3>Info-Acquisti</h3>
+            <p>Consegna</p>
+            <p>Reso e cambio taglia</p>
+            <p>Metodi di pagamento</p>
+            <p>Diritto di recesso </p>
+            <p>Privacy policy</p>
+        </div>
+    </div>
+
+    <div class="newsletter-box">
+        <h2>Iscriviti alla Newsletter</h2>
+        <p>Resta aggiornato su nuovi arrivi, offerte esclusive e novità Daboss Apparel.</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Inserisci la tua email" required>
+            <button type="submit">Iscriviti</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        © 2025 Daboss Apparel | Tutti i diritti riservati | Made by Salvatore Bonavita
+        <div class="social">
+            <h1 class="testo">Trovateci su:</h1>
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/dabosstournament" target="_blank">
+                <i class="fab fa-instagram"></i>
+                <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://pinterest.com" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+
+        </div>
+
+
+
+    </footer>
+
+    <html>
